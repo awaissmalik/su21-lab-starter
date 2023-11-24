@@ -1,6 +1,7 @@
 #include <string.h>
 #include "pwd_checker.h"
-
+#include <assert.h>
+#include<stdio.h>
 /*
 Password checker
 
@@ -21,6 +22,7 @@ For the simplicity of this exercise:
 /* Returns true if the length of PASSWORD is at least 10, false otherwise */
 bool check_length(const char *password) {
     int length = strlen(password);
+    printf("Actual Length in check_length :%d\n",length);
     bool meets_len_req = (length >= 10);
     return meets_len_req;
 }
@@ -81,9 +83,23 @@ bool check_name(const char *first_name, const char *last_name, const char *passw
 bool check_password(const char *first_name, const char *last_name, const char *password) {
     bool length, upper, lower, number, name;
     lower = check_lower(password);
+
     length = check_length(password);
     name = check_name(first_name, last_name, password);
     number = check_number(password);
     upper = check_upper(password);
+    int actual_length = (int)strlen(password);
+    printf("Actual Length : %d \n", actual_length); 
+    printf("Actual lower in check_password: %s\n" , lower ? "true" : "false");
+    printf("Actual Name in check_password: %s\n", number ? "true" : "false");
+    printf("Acutal Number in check_password: %s\n", number ? "true" : "false");
+    printf("Actual Upper in check_password: %s\n", upper ? "true" : "false");
+
+    assert(length);
+    assert(lower);
+    assert(name);
+    assert(number);
+    assert(upper);
+ 
     return (lower && length && name && upper && number);
 }
