@@ -22,20 +22,21 @@ int main(int argc, char **argv) {
     DNA_sequence dna_seq_1;
     strcpy(dna_seq_1.sequence, "ACTTTGAAC");
     compute_nucleotide_occurrences(&dna_seq_1);
-    assert(dna_seq_1.A_count == 3);
-    assert(dna_seq_1.C_count == 2);
-    assert(dna_seq_1.G_count == 1);
-    assert(dna_seq_1.T_count == 3);
+    assert(dna_seq_1.count_A ==3);
+    assert(dna_seq_1.count_C ==2);
+    assert(dna_seq_1.count_G ==1);
+    assert(dna_seq_1.count_T ==3);
 
     DNA_sequence dna_seq_2;
     strcpy(dna_seq_2.sequence, "AAAACCC");
     compute_nucleotide_occurrences(&dna_seq_2);
-    assert(dna_seq_2.A_count == 4);
-    assert(dna_seq_2.C_count == 3);
-    assert(dna_seq_2.G_count == 0);
-    assert(dna_seq_2.T_count == 0);
+    assert(dna_seq_2.count_A ==4);
+    assert(dna_seq_2.count_C ==3);
+    assert(dna_seq_2.count_G ==0);
+    assert(dna_seq_2.count_T ==0);
 
-    /* TODO: Think of a scenario that is not tested by the current test cases. Create one additional test case to test this scenario. */
+  
+ /* TODO: Think of a scenario that is not tested by the current test cases. Create one additional test case to test this scenario. */
 
     printf("Congrats! If you have made it to this line, your Part 2 Test cases are all passing!\n");
 
