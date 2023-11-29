@@ -1,7 +1,9 @@
 #include <string.h>
 #include "pwd_checker.h"
 #include <assert.h>
-#include<stdio.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
 /*
 Password checker
 
@@ -60,7 +62,7 @@ bool check_lower(const char *password) {
 /* Returns true if PASSWORD contains at least one number, false otherwise */
 bool check_number(const char *password) {
     while (*password != '\0') {
-        if (check_range(*password, '0', '9')) {
+        if (check_range(*password, '0', '9' )) {
             return true;
         }
         ++password;
@@ -76,30 +78,24 @@ bool check_name(const char *first_name, const char *last_name, const char *passw
         will evaluate to True */
     const char *first = strstr(password, first_name);
     const char *last = strstr(password, last_name);
-    return (!first && !last);
+    return !(first && last);
 }
 
 /* Returns true if PASSWORD meets the conditions specified above */
 bool check_password(const char *first_name, const char *last_name, const char *password) {
     bool length, upper, lower, number, name;
     lower = check_lower(password);
-
     length = check_length(password);
     name = check_name(first_name, last_name, password);
     number = check_number(password);
     upper = check_upper(password);
-    int actual_length = (int)strlen(password);
-    printf("Actual Length : %d \n", actual_length); 
-    printf("Actual lower in check_password: %s\n" , lower ? "true" : "false");
-    printf("Actual Name in check_password: %s\n", number ? "true" : "false");
-    printf("Acutal Number in check_password: %s\n", number ? "true" : "false");
-    printf("Actual Upper in check_password: %s\n", upper ? "true" : "false");
-
-    assert(length);
-    assert(lower);
-    assert(name);
-    assert(number);
-    assert(upper);
- 
+    
+    //assert(length);
+    //assert(lower);
+    //assert(name);
+    //assert(number);
+    //assert(upper);
+    //printf("This is the actual password : %s\n",password); 
+    //printf("Actual length in check_length %d\n", length);
     return (lower && length && name && upper && number);
 }
