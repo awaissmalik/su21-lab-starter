@@ -13,4 +13,4 @@ test_linked_list.o: test_linked_list.c linked_list.h
 	$(CC) $(CFLAGS) -c test_linked_list.c
 
 clean:
-	rm linked_list linked_list.o test_linked_list.o
+	rm linked_list.o test_linked_list.o
