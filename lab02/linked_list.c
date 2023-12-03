@@ -12,7 +12,6 @@ Node *create_node(int data) {
     new_node->next = NULL;
     return new_node;
 }
-
 /* Frees the list starting at HEAD */
 void free_list(Node *head) {
     while (head != NULL) {
@@ -40,6 +39,7 @@ void add_to_front(struct Node **head, int data) {
     *head = new_node;
     /* The following line would not work because it would only change our local copy of HEAD */
     /* head = new_node */
+ Printf("This is the change in the program");
 }
 
 /* Prints out a linked list starting at HEAD */

@@ -3,6 +3,7 @@
 #include "pwd_checker.h"
 #include <ctype.h>
 #include <stdbool.h>
+#include <assert.h>
 /*
 Password checker
 
@@ -92,14 +93,15 @@ bool check_name(const char *first_name, const char *last_name, const char *passw
 bool check_password(const char *first_name, const char *last_name, const char *password) {
     bool length, upper, lower, number, name;
     lower = check_lower(password);
-    assert(lower);
+    //assert(lower);
     length = check_length(password);
-    assert(length);
+    //assert(length);
     name = check_name(first_name, last_name, password);
-    assert(name);
+    //assert(name);
     number = check_number(password);
-    assert(number);
+    //assert(number);
     upper = check_upper(password);
-    return (lower && length && name && upper && number);
+    //assert(upper);
+return (lower && length && name && upper && number);
 }
 
