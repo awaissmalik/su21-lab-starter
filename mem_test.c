@@ -192,4 +192,21 @@ int store_double_word_test() {
 
   return 0;
 }
+int main() {
+    int result;
+
+    result = store_byte_test();
+    printf("store_byte_test: %s\n", result == 0 ? "Passed" : "Failed");
+
+    result = store_half_word_test();
+    printf("store_half_word_test: %s\n", result == 0 ? "Passed" : "Failed");
+
+    result = store_word_test();
+    printf("store_word_test: %s\n", result == 0 ? "Passed" : "Failed");
+
+    result = store_double_word_test();
+    printf("store_double_word_test: %s\n", result == 0 ? "Passed" : "Failed");
+
+    return 0;
+}
 
